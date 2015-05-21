@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PythonPrefix>E:\CPythonBuild\src\CPython\</PythonPrefix>
+    <PythonArch Condition="'$(Platform)'=='Win32'">win32</PythonArch>
+    <PythonArch Condition="'$(Platform)'=='x64'">amd64</PythonArch>
+    <PythonExecPrefix>$(PythonPrefix)PCBuild\$(PythonArch)\</PythonExecPrefix>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LocalDebuggerEnvironment>PATH=$(PythonExecPrefix)
+$(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(PythonPrefix)Include;$(PythonPrefix)PC</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>INCLUDE_PYTHON_H;PYTHON_HOME=L"$(PythonPrefix.TrimEnd(`\`).Replace(`\`, `\\`))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(PythonExecPrefix)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

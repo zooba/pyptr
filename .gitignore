@@ -26,3 +26,14 @@
 *.exe
 *.out
 *.app
+
+# Debugging Files
+*.pdb
+
+# Visual Studio specifics
+.vs
+*.sdf
+*.opensdf
+*.user
+Debug
+Release
